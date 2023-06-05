@@ -15,13 +15,14 @@ for (i=0; i<list.length; i++) { // start at the first index position, continue u
 		// image pre-processing
 		run("Make Substack...", "channels=2-3 slices=7-14");
 		print("\nMake substack with channels 2-3 and slices 7-14");
-		run("Median...", "radius=2 stack");
-		print("Median blur with radius of 2 pixels");
 		run("Subtract Background...", "rolling=10 stack");
 		print("Subtract background using a rolling ball with radius of 10 pixels");
 		
 		// comdet
 		run("Detect Particles", "calculate max=5 plot rois=Ovals add=Nothing summary=Append ch1i ch1l ch1a=3 ch1s=100 ch2i ch2l ch2a=3 ch2s=50");
+		
+		selectWindow("Results");
+		saveAs("Text", dir2+"Results_" + list[i] + " .txt");
 		
 		// close all open windows
 		run("Close All");
@@ -31,7 +32,7 @@ setBatchMode(false);
 print("\nFinished")
 
 selectWindow("Log");
-saveAs("Text", dir2+"Log.txt")
+saveAs("Text", dir2+"Log.txt");
 
 selectWindow("Summary");
 saveAs("Text", dir2+"Summary.txt")
