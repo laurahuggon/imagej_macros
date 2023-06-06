@@ -13,8 +13,8 @@ for (i=0; i<list.length; i++) { // start at the first index position, continue u
 		open(dir1+list[i]); // add file name (at index position i) to the folder path 
 		
 		// image pre-processing
-		run("Make Substack...", "channels=2-3 slices=7-14");
-		print("\nMake substack with channels 2-3 and slices 7-14");
+		run("Make Substack...", "channels=2-3 slices=7-12");
+		print("\nMake substack with channels 2-3 and slices 7-12");
 		run("Subtract Background...", "rolling=10 stack");
 		print("Subtract background using a rolling ball with radius of 10 pixels");
 		
